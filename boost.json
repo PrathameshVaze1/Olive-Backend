@@ -9,7 +9,10 @@
     ],
     "editors": [
         "claude_code",
-        "cursor"
+        "cursor",
+        "opencode",
+        "phpstorm",
+        "vscode"
     ],
     "guidelines": [],
     "herd_mcp": true
