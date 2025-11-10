@@ -13,7 +13,6 @@ class AuthController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -25,14 +24,14 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (! Auth::attempt($request->only('email', 'password'))) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
 
         $user = $request->user();
-        
+
         // Create a new API token for the user
         $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -53,7 +52,6 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout(Request $request)
@@ -66,7 +64,6 @@ class AuthController extends Controller
     /**
      * Get the authenticated User.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function user(Request $request)
