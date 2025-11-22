@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
-import { Link, router } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import { BookOpen, DollarSign, Folder, LayoutGrid } from 'lucide-react';
 import AppLogo from './app-logo';
 

@@ -1,8 +1,7 @@
-import { Head, router, Form, usePage } from '@inertiajs/react';
+import { Head, router, Form } from '@inertiajs/react';
 import { useState } from 'react';
 import { store, destroy } from '@/actions/App/Http/Controllers/ExpenseController';
 import AppLayout from '@/layouts/app-layout';
-import { type SharedData, type BreadcrumbItem } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -54,7 +53,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Index({ expenses, categories, flash }: IndexProps) {
-    const { auth } = usePage<SharedData>().props;
     const [showForm, setShowForm] = useState(false);
     const [categoryId, setCategoryId] = useState<string>(
         categories.length > 0 ? categories[0].id.toString() : ''
